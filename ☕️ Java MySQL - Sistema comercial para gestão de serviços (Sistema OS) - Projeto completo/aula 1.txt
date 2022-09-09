@@ -1,0 +1,82 @@
+☕️ Java MySQL - Sistema comercial para gestão de serviços (Sistema OS) - Projeto completo
+                          ====================== Aula 1 ==============================
+
+nestas aulas serão ensinados paso a posso  do desenvolvimento de um sistem para controle de 
+ordem de serviço.
+No´s faremo isso utilizando o banco de dados"MySql" e o "Java". 
+Nesta primeira aula nós iremops conhecer o projeto e preparar o ambiente de desenvolvimento.
+aqui sera mostrado passo a Passo 
+1 passo  par apoder desenvolver um sistema é  conhecer o cliente e intender as suas 
+necessidades.
+
+ficha do cliente 
+
+----------------------------------/Estudo de Caso/------------------------------------ 
+saber as informações basicas dobre o cliente e entender suas necessidades 
+----------------------------------/Cliente:/------------------------------------------
+|-----------------------------------------------------------------------|
+| nome completo | serviço da empressa | porte   | numero de funcionarios|
+|-----------------------------------------------------------------------|
+|      X        | assistencia tecnica | pequeno |   7                   |
+|-----------------------------------------------------------------------|
+
+sendo asim para a equipe da empressa teremos que ter outra tabela 
+
+|--------------------------------------------|
+|nome completo| função | informações basicas |
+|--------------------------------------------|
+|     x       |   x    | xxxxxx xxxxxxx xxxxx|
+|--------------------------------------------|
+
+no caso do exemplo ficaria da seguinte foma a tabela 
+
+|------------------------------------------------|
+| nome completo |  função  | informações basicas |
+|------------------------------------------------|
+|     x         |  dono    |xxxxxx xxx xxxx xxxxx|
+|------------------------------------------------|
+|     x         |atendentes| xxxxxx xxxxxxx xxxxx|
+|------------------------------------------------|
+|     x         |atendentes|xxxx xx xxxxxxx xxxxx|
+|------------------------------------------------|
+|     x         | tecnicos |xxxxxx x xxxxxx xxxxx|
+|------------------------------------------------|
+|     x         | tecnicos |  xxxxxx xxxxxxxxxxxx|
+|------------------------------------------------|
+|     x         | tecnicos | xxxxxx xxxxxxx xxxxx|
+|------------------------------------------------|
+|     x         | Tecnicos | xxxxxx xx xxxx xxxxx|
+|------------------------------------------------|
+
+---------------------------------------/Necessidade do Cliente/-------------------------
+ Qual a necessidade do clinte ??
+Exemplo:
+-A necessidade do cliente  é  precisar de um sistema para ordem de controle de serviço
+
+-------------------------------------/Análise de Requisitos/---------------------------- 
+
+@ Cadastro de cliente 
+@Emissão de OS
+@Relatório de Serviços 
+
+esse sistema segundo a análise de requisistos.
+análise de requisistos é uma tecnica para levantamento de dados onde voce visita o cliente, 
+entrevista o cliente, vivencia o serviço do cliente.
+E nessa analise de requisitoso sistemaa ele precisa de ter um 
+-cadastro de cliente 
+-ele precisa emitir ordem de seviço
+-gerar um relatorio para saber o total do faturamendo da loja.
+
+----------------------------------------/Restrições/----------------------------------------
+OS(Ordem de Serviço)
+
+@Não pode existir nenhum OS sem  Cliente Vinculado //não pode ter equipamento se não ouver um cliente 
+vinculado 
+ ==---------------------------------------------------------------==
+@O sistema deverá gerar automaticamente data e hora na emissão da OS // importante  para o controle de 
+garantis 
+ ==--------------------------------====================-----------==
+@Somente o gestor pode ter acesso ao relatorio de serviços. //somente o dono, gestor pode ter acesso ao 
+relatorio de serviço.
+ele não quer que outros membros da equipe tenham acesso ao lucro da empresa o quanto a emprsa ganha no 
+final do dia ou no final do mes.

@@ -1,0 +1,147 @@
+☕️ Java MySQL - Sistema comercial para gestão de serviços (Sistema OS) - Projeto completo
+                          ====================== Aula 2 ==============================
+
+o principal objeto desta playlist e´desenvolver passo a passo do zero um sistmema para controle
+de ordem de serviços usando o JAVA e o Banco de Dados MYSQL .
+
+as aulas desta playlist apesar de ter sid postada a algum tempo o JAVA-8 que é a base deste pr-
+ojeto aida é mantido pela Oracle e tambem é muito usado no mercado cororativo.
+alem disso este projetoé muito popular!! servindo tambem como modelo para outros projetos de g-
+estão de serviços como por exemploa assistencia tecnica de smartphones , eletrodomesticos ofi-
+cinas mecanicas e etc.
+
+Estaramos iniciando pela prparação de um novo ambiente de desenvolvimento.
+para desenvolver este projeto acompanhando  as aulas deta playlist é necessario ter o :
+
+> Banco de dados MySQL;
+
+> JDk versão 8;
+
+> IDE netbeans.
+
+
+ -------------------------------------/JDK/----------------------------------------------
+
+ O JDK ou Kit de desenvolvimento java e´um conjunto de utilitarios que permmite criar sistemas 
+de software para a plataforma java.
+ O JDK e´composto por bibliotcas e um compilador, o JDK também inclui a máquina virtual java.
+o java tambem é mantido  pela oracle e tambem pela comunidade.
+O codigo fonte oficial do java esta disponivel no site HGopenJDK.java.net
+o JTK da Oracle é construido partir do codigo-fonte do OpenJDK, então por tanto  não a diferença 
+tecnica entre o OracleJDK e o OpenJDK. as Diferenças entre eles é  o tipo de licença, o suporte, 
+e a Inclusão de algums componentes adicionais no oracle jdk.
+
+POV:Quais dele s usar??
+JDK ou OpenJDk
+
+Indo ao site da oracle  indo no menu e acessando a opção java.
+Dentro do javaSE Vou clicar em Downloads  vai ter uma informação que a Oracle lança uma nova  versão 
+do Java a cada 6 messes.
+
+O java é muito usado no mercado corporativo, e as impresas buscam  estabilidade, e ala não podem ficar 
+atualizando  o java  a cada 6 meses.
+
+Penssando neste mercado  Corporativo que sempre foi o forte do java  a Oracle tem as versões LTS 
+Lts é um suporte de Longo Prazo.
+
+indo para parte inferior do site clique em  JAVASE-11LTS
+nesta parte Tera u aviso Importante da oracle  com relação a  essa versão  11LTS.
+> A Vesão 11-LTS voce pode usar para Fins Educacionais, para teste e outros fins.
+> Porem  esta versão JDK é para Uso comercial e o suporte tem um custos a ser cobrados hoje pela ora
+cle.
+|---------------------------------------------------------------------------------------------------|
+|> Obs: É Possivel usar sobre a Licença GPl  Ou Seja é possivel usar  gratuitamente inclisive       |
+|> Comercialmente a Versão 11 Do Oracle se voceusar o OpenJDK.                                      |
+|---------------------------------------------------------------------------------------------------|
+
+Alem de termos o Java-11LTS a gente encontra tambem o java versão 8.
+o Java Versão 8 ainda tambem é batante usado no mercado corporativo, e para não ter nenhum tipo de 
+problema e redistribuir ou Comercializar as suas aplicações em  java sem nenhuma restrição é recomendao
+o uso do  OpenJDK
+
+E como foi dito anteriormente voce tem o repositorio oficial, Porem O melhor local para voce fazer o download 
+do   OpenJdk é o Site AdoptOpenJDk.net.
+Esta comunidade é apoiada por gigantes como Amazon,Microsoft,Redhatch e muitos outros
+
+ antes de baixar o Openjdk é recomendado voce degir os seguintes passos:
+
+1- ir na barra de pesquisa da barra de tarefas 
+2- Pesquisar CMD
+3- cliquar em Abrir.
+
+ Uma tela como essa sera aberta para voce digitar os comandos na prompt de comandos
+do windows
+  
+|------------------------------------------------------------|
+| |  |  Prompt de Comando                                    |
+|------------------------------------------------------------|
+| Microsoft Windows[version|0.0.122323]                      |
+| (c)2016 Microsoft cormporation .All rigth reserved         |
+|                                                            |
+|c:\Users\Guifrans>                                          |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|------------------------------------------------------------|
+
+ Apos a abertura do CM(Prompt de comandos) do windows  voce tera que digitar o seguite 
+comando "java -version" para ver a versão do java e se tem o java instalado. 
+
+|------------------------------------------------------------|
+| |  |  Prompt de Comando                                    |
+|------------------------------------------------------------|
+| Microsoft Windows[version|0.0.122323]                      |
+| (c)2016 Microsoft cormporation .All rigth reserved         |
+|                                                            |
+|c:\Users\Guifrans>java -version                             |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|------------------------------------------------------------|
+
+ Quando voce digitar o comando "java -version" caso voe não tenha o java instalado 
+em seu Computador aparecera a tela abaixo 
+ 
+|------------------------------------------------------------|
+| |  |  Prompt de Comando                                    |
+|------------------------------------------------------------|
+| Microsoft Windows[version|0.0.122323]                      |
+| (c)2016 Microsoft cormporation .All rigth reserved         |
+|                                                            |
+|c:\Users\Guifrans>java -version                             |
+|'java' não é reonhecido como um comando interno             |
+|ou externo, um programa ou um arquivo em lotes.             |
+|                                                            |
+|c:\Users\Guifrans>                                          |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|------------------------------------------------------------|
+
+Após isso de o comando "javac -version".
+o "JavaC" é o compilador do java  
+
+|------------------------------------------------------------|
+| |  |  Prompt de Comando                                    |
+|------------------------------------------------------------|
+| Microsoft Windows[version|0.0.122323]                      |
+| (c)2016 Microsoft cormporation .All rigth reserved         |
+|                                                            |
+|c:\Users\Guifrans>javac -version                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|------------------------------------------------------------|
+
+Apos dar Enter 
