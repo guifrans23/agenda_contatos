@@ -10,6 +10,10 @@ import javax.swing.border.EmptyBorder;
 import model.DAO;
 
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -18,6 +22,8 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Principal extends JFrame {
 
@@ -107,6 +113,10 @@ public class Principal extends JFrame {
 		panel.add(btnDeletar);
 		
 		JButton btnAlterar = new JButton("");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAlterar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAlterar.setBorderPainted(false);
 		btnAlterar.setContentAreaFilled(false);
@@ -133,20 +143,28 @@ public class Principal extends JFrame {
 		lblNewLabel_5.setBounds(10, 11, 64, 64);
 		panel.add(lblNewLabel_5);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setToolTipText("pesquisar");
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.setBorderPainted(false);
-		btnNewButton.setIcon(new ImageIcon(Principal.class.getResource("/img/pesquisa.png")));
-		btnNewButton.setBounds(280, 13, 48, 48);
-		contentPane.add(btnNewButton);
-	}//fim do construtor
+		btnPesquisar_1 = new JButton("");
+		btnPesquisar_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPesquisar_1.setToolTipText("pesquisar");
+		btnPesquisar_1.setContentAreaFilled(false);
+		btnPesquisar_1.setBorderPainted(false);
+		btnPesquisar_1.setIcon(new ImageIcon(Principal.class.getResource("/img/pesquisa.png")));
+		btnPesquisar_1.setBounds(359, 13, 48, 48);
+		contentPane.add(btnPesquisar_1);
+	}
+	//fim do construtor
+	
 	DAO dao = new DAO();
+
 	private JTextField txtID;
 	private JTextField txtNome;
 	private JTextField txtEmail;
 	private JTextField txtFone;
+	private JButton btnAdicionar;
+	private JButton btnAlterar;
+	private JButton btnExcluir;
+	private JButton btnPesquisar;
+	private JButton btnPesquisar_1;
 	
 	/**
 	 * Método Responsável Pela pesquisa do usuario 
@@ -154,8 +172,49 @@ public class Principal extends JFrame {
 	
 	private void pesquisarUsuario() {
 		//vaildação 
-		if (txtID.getText().isEmpty()) {}
+		if (txtID.getText().isEmpty()) {
 		JOptionPane.showMessageDialog(null, "Digite o ID do Usuario");
-	}
-
-}//fim do codigo 
+		txtID.requestFocus();
+	} else {
+		//Lógica Principal
+		//Querry (instrução SQL)
+		String read = "select*from agenda where id=?";
+		//Tratar exceções sempre que lidar com o banco
+		try {
+			//estabelecer conexão 
+			Connection con = dao.conectar();
+			//Preparar execução da Query
+			PreparedStatement pst = con.prepareStatement(read);
+			//Setar argumentov(ID)
+			//Sustituir o ? pelo conteudo da caixa de texto 
+			pst.setString(1,txtID.getText());
+			//executar a Query e exibir o resultado no formulario
+			ResultSet rs = pst.executeQuery();
+			//validação (existencia de usuario)
+			// rs.next()->Existencia do usuário 
+			if(rs.next()) {
+			txtID.setText(rs.getString(1));	
+			txtNome.setText(rs.getString(2));
+			txtEmail.setText(rs.getString(3));
+			txtFone.setText(rs.getString(4));
+			btnAdicionar.setEnabled(true);
+			btnAlterar.setEnabled(true);
+			btnExcluir.setEnabled(true);
+			btnPesquisar_1.setEnabled(true);
+			
+		}else {
+		JOptionPane.showMessageDialog(null,"ususario inexistente ");
+		txtNome.setEditable(true);
+		txtFone.setEditable(true);
+		txtEmail.setEditable(true);
+		txtNome.requestFocus();
+		txtEmail.setEditable(true);
+		}
+			//NUNCA Se Esqueca de Encerrar  a Conexão
+			con.close();
+		}catch (Exception e) {
+		System.out.println(e);	
+		}
+	   }
+     }
+}
